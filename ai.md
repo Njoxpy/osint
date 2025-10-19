@@ -11,19 +11,19 @@ In simple terms, it is the process of:
 
 **Key things to know about OSINT:**
 
-* **"Open-Source"** means the information is gathered from sources that are openly and legally accessible to anyone, not from classified or private sources.
-* **Sources can include:**
-    * The internet (websites, blogs, forums).
-    * Social media (Facebook, X, Instagram, LinkedIn, etc.).
-    * Public records (births, deaths, court documents, business filings).
-    * News media (print and online).
-    * Academic and professional publications.
-    * Government reports and press releases.
-* **It's used by:**
-    * **Intelligence and Law Enforcement:** To gather info on threats, crime, or foreign interests.
-    * **Cybersecurity Professionals:** To assess a company's risk, find vulnerabilities, and track threat actors.
-    * **Businesses:** For market research, competitor analysis, and due diligence.
-    * **Journalists:** For investigative reporting.
+- **"Open-Source"** means the information is gathered from sources that are openly and legally accessible to anyone, not from classified or private sources.
+- **Sources can include:**
+  - The internet (websites, blogs, forums).
+  - Social media (Facebook, X, Instagram, LinkedIn, etc.).
+  - Public records (births, deaths, court documents, business filings).
+  - News media (print and online).
+  - Academic and professional publications.
+  - Government reports and press releases.
+- **It's used by:**
+  - **Intelligence and Law Enforcement:** To gather info on threats, crime, or foreign interests.
+  - **Cybersecurity Professionals:** To assess a company's risk, find vulnerabilities, and track threat actors.
+  - **Businesses:** For market research, competitor analysis, and due diligence.
+  - **Journalists:** For investigative reporting.
 
 Essentially, OSINT is about turning the massive amount of public information out there into focused, useful knowledge. It's a structured, methodical way of researching that goes way beyond a simple Google search.
 
@@ -45,12 +45,12 @@ The primary reason for using a sock puppet is for **Operational Security (OPSEC)
 
 Creating a successful sock puppet is an art that requires meticulous planning to avoid detection:
 
-* **A Detailed Persona:** The account needs a full, consistent, and believable backstory, including a name, a profile picture (often AI-generated or a royalty-free image to avoid copyright/reverse image search issues), a location, and a plausible job/interests.
-* **Time and Activity (Seasoning):** A brand-new account with no history is highly suspicious. Investigators "season" a sock puppet by posting content, following other accounts, and engaging in normal user behavior over weeks or months to build a credible history before using it for a primary investigation.
-* **Technical Isolation:** A perfect sock puppet is never linked to the investigator's personal data. This often involves using:
-    * A **Virtual Private Network (VPN)** or a specialized virtual machine to hide the true IP address and location.
-    * A **burner phone number** or VoIP service for account verification, as many platforms require a phone number.
-    * A dedicated, isolated **email address**.
+- **A Detailed Persona:** The account needs a full, consistent, and believable backstory, including a name, a profile picture (often AI-generated or a royalty-free image to avoid copyright/reverse image search issues), a location, and a plausible job/interests.
+- **Time and Activity (Seasoning):** A brand-new account with no history is highly suspicious. Investigators "season" a sock puppet by posting content, following other accounts, and engaging in normal user behavior over weeks or months to build a credible history before using it for a primary investigation.
+- **Technical Isolation:** A perfect sock puppet is never linked to the investigator's personal data. This often involves using:
+  - A **Virtual Private Network (VPN)** or a specialized virtual machine to hide the true IP address and location.
+  - A **burner phone number** or VoIP service for account verification, as many platforms require a phone number.
+  - A dedicated, isolated **email address**.
 
 In short, for an INTJ like you, think of it as a meticulously engineered, anonymous digital projection designed to gather intelligence while maintaining perfect deniability. It is a critical tool for deep-dive OSINT.
 
@@ -60,11 +60,11 @@ A sock puppet **is a fake account**, but the term emphasizes the level of **plan
 
 Think of it this way:
 
-| Feature | "Fake Account" (General Use) | "Sock Puppet" (OSINT/Professional Use) |
-| :--- | :--- | :--- |
-| **Identity Detail** | Minimal effort; might use a random photo or a friend's pet picture. | **Extremely Detailed Persona** (name, age, city, job, specific interests, back-story). |
-| **Authenticity** | Often easy to spot (no posts, few friends, strange name). | **"Seasoned"** with months of realistic activity (posts, likes, comments) to appear fully legitimate. |
+| Feature                 | "Fake Account" (General Use)                                                 | "Sock Puppet" (OSINT/Professional Use)                                                                                                                                 |
+| :---------------------- | :--------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Identity Detail**     | Minimal effort; might use a random photo or a friend's pet picture.          | **Extremely Detailed Persona** (name, age, city, job, specific interests, back-story).                                                                                 |
+| **Authenticity**        | Often easy to spot (no posts, few friends, strange name).                    | **"Seasoned"** with months of realistic activity (posts, likes, comments) to appear fully legitimate.                                                                  |
 | **Technical Isolation** | Likely created from the user's home IP and linked to a personal email/phone. | **Strict Operational Security (OPSEC)**: Uses VPNs/Tor, burner phones/VoIP, and dedicated, isolated virtual environments to prevent any link back to the investigator. |
-| **Goal** | To spam, troll, cheat in a poll, or simple deception/catfishing. | **To gather intelligence discreetly** (passive observation) or engage a target for information (active collection) without compromising the investigation. |
+| **Goal**                | To spam, troll, cheat in a poll, or simple deception/catfishing.             | **To gather intelligence discreetly** (passive observation) or engage a target for information (active collection) without compromising the investigation.             |
 
 So, while both are fake, the OSINT sock puppet is a **highly-engineered, carefully maintained, and secure research tool** built for a specific investigative objective.
