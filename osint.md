@@ -108,3 +108,7 @@ This technique helps locate PDF documents on Tesla's website that might contain 
 ```
 
 ```
+
+## References
+
+- [How to Google like a Pro – 10 Tips for More Effective Googling](https://www.freecodecamp.org/news/how-to-google-like-a-pro-10-tips-for-effective-googling/)
