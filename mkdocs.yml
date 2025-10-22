@@ -118,6 +118,7 @@ nav:
   - Getting Started:
     - Introduction: osint-fundamentals.md
     - Note Taking: note-taking.md
+    - Username Identification: identifyusername.md
   - Tools & Techniques:
     - OSINT Tools: tools.md
     - Search Engines: search-engines.md
