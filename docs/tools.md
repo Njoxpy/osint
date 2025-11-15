@@ -50,3 +50,7 @@ This document outlines essential OSINT (Open Source Intelligence) tools and tech
 - Respect privacy laws and regulations (GDPR, CAN-SPAM, etc.)
 - Use multiple tools to cross-verify results
 - Document your findings for future reference
+
+Creepiest OSINT Tools encountered
+- https://findsatoshi.com/
+- https://pimeyes.com/en

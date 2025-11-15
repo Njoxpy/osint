@@ -116,24 +116,24 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Getting Started:
-    - Introduction: osint-fundamentals.md
-    - Note Taking: note-taking.md
-    - Username Identification: identifyusername.md
-    - Identifying Birth Rates: identifyingbirthdates.md
+      - Introduction: osint-fundamentals.md
+      - Note Taking: note-taking.md
+      - Username Identification: identifyusername.md
+      - Identifying Birth Rates: identifyingbirthdates.md
   - Tools & Techniques:
-    - OSINT Tools: tools.md
-    - More OSINT Tools: moretols.md
-    - Reports: reportandtools.md
-    - Search Engines: search-engines.md
-    - Email Discovery: email-discovery.md
+      - OSINT Tools: tools.md
+      - More OSINT Tools: moretols.md
+      - Reports: reportandtools.md
+      - Search Engines: search-engines.md
+      - Email Discovery: email-discovery.md
   - Advanced Topics:
-    - Image Analysis: reverse-image-searching.md
-    - Geolocation: identifying-geolocation.md
-    - Automating Web Osint: automatingwebitesosint.md
-    - AI in OSINT: ai-osint.md
+      - Image Analysis: reverse-image-searching.md
+      - Geolocation: identifying-geolocation.md
+      - Automating Web Osint: automatingwebitesosint.md
+      - AI in OSINT: ai-osint.md
   - Resources:
-    - Image Gallery: images.md
-    - External Links: external-resources.md
+      - Image Gallery: images.md
+      - External Links: external-resources.md
 
 # Extra
 extra:

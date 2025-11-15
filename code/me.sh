@@ -1,0 +1,1 @@
+source /home/njox/Desktop/PERSONAL/learning/osint/venv/bin/activate

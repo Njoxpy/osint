@@ -42,6 +42,9 @@ If you're new to OSINT, we recommend starting with:
 - [AI in OSINT](ai-osint.md)
 - [Image Gallery](images.md)
 
+## Templates
+
+
 ## Contributing
 
 This guide is continuously updated with new tools and techniques. If you have suggestions or would like to contribute, please visit our [GitHub repository](https://github.com/Njoxpy/osint).
