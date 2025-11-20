@@ -139,7 +139,10 @@ nav:
           - Projects: sherlockprojectideas.md
   - Instagram OSINT:
       - Instagram OSINT Overview: socialmedia/instagramosint.md
-
+      - OSINT Instagram: socialmedia/osintgram.md
+      - Social Media Profiles: socialmedia/privateprofiles.md
+  - Phone Number OSINT:
+      - Phone Number OSINT: phonenumberosint/phonenumber.md
   - Resources:
       - Image Gallery: images.md
       - External Links: external-resources.md
