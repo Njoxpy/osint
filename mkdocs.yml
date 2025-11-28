@@ -146,7 +146,11 @@ nav:
   - Resources:
       - Image Gallery: images.md
       - External Links: external-resources.md
-
+  - Projects:
+      - Geolocation:
+          - Project 1: projects/geolocation/project1.md
+  - Templates:
+      - Templates: geolocation.md
 # Extra
 extra:
   social:
