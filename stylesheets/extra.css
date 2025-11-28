@@ -1,0 +1,127 @@
+/* Custom styles for OSINT documentation */
+
+:root {
+  --md-primary-fg-color:        #3f51b5;
+  --md-primary-fg-color--light: #5c6bc0;
+  --md-primary-fg-color--dark:  #303f9f;
+}
+
+/* Custom styling for code blocks */
+.highlight {
+  border-radius: 0.2rem;
+  margin: 1em 0;
+}
+
+/* Table styling */
+table {
+  border-collapse: collapse;
+  margin: 1em 0;
+  width: 100%;
+}
+
+table th,
+table td {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  padding: 0.6em 1em;
+  text-align: left;
+}
+
+table th {
+  background-color: var(--md-default-fg-color--lightest);
+  font-weight: 600;
+}
+
+/* Note boxes */
+.admonition {
+  margin: 1.5625em 0;
+  padding: 0 0.6rem;
+  overflow: hidden;
+  page-break-inside: avoid;
+  border-left: 0.2rem solid var(--md-primary-fg-color);
+  border-radius: 0.1rem;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* Image styling */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Command line styling */
+code {
+  background-color: var(--md-code-bg-color);
+  border-radius: 0.2rem;
+  padding: 0.1em 0.3em;
+  font-family: var(--md-code-font-family);
+}
+
+/* Navigation enhancements */
+.md-nav__item--active > .md-nav__link {
+  color: var(--md-primary-fg-color);
+  font-weight: 600;
+}
+
+/* Custom button styling */
+.md-button {
+  background-color: var(--md-primary-fg-color);
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 0.2rem;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0.2em;
+  transition: background-color 0.2s;
+}
+
+.md-button:hover {
+  background-color: var(--md-primary-fg-color--dark);
+  color: white;
+}
+
+/* Search highlighting */
+.md-search-result__title mark,
+.md-search-result__teaser mark {
+  background-color: var(--md-accent-fg-color);
+  color: white;
+  padding: 0.1em 0.2em;
+  border-radius: 0.1rem;
+}
+
+/* Footer customization */
+.md-footer-meta {
+  background-color: var(--md-primary-fg-color--dark);
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #1e1e1e;
+  --md-default-fg-color: #ffffff;
+}
+
+/* Responsive images in tables */
+@media screen and (max-width: 76.1875em) {
+  table {
+    font-size: 0.8rem;
+  }
+  
+  .md-content__inner {
+    padding: 1rem 0.8rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .md-header,
+  .md-tabs,
+  .md-footer {
+    display: none;
+  }
+  
+  .md-content {
+    margin: 0;
+  }
+}

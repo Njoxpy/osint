@@ -1,0 +1,4383 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A comprehensive guide to Open Source Intelligence (OSINT) tools and techniques">
+      
+      
+        <meta name="author" content="Njoxpy">
+      
+      
+        <link rel="canonical" href="https://njoxpy.github.io/osint/beginnersherlock/">
+      
+      
+        <link rel="prev" href="../sherlock/">
+      
+      
+        <link rel="next" href="../intermediate/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Beginner - OSINT Learning Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#beginners-guide-to-sherlock" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="OSINT Learning Guide" class="md-header__button md-logo" aria-label="OSINT Learning Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OSINT Learning Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Beginner
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Njoxpy/osint" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Njoxpy/osint
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../osint-fundamentals/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../tools/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tools & Techniques
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../reverse-image-searching/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Advanced Topics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../socialmedia/instagramosint/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Instagram OSINT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../phonenumberosint/phonenumber/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Phone Number OSINT
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../images/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../projects/geolocation/project1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../geolocation.md" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Templates
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OSINT Learning Guide" class="md-nav__button md-logo" aria-label="OSINT Learning Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OSINT Learning Guide
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Njoxpy/osint" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Njoxpy/osint
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../osint-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../note-taking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Note Taking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identifyusername/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Username Identification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identifyingbirthdates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identifying Birth Rates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools & Techniques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools & Techniques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OSINT Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../moretols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More OSINT Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reportandtools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../search-engines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search Engines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../email-discovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Email Discovery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Topics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced Topics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reverse-image-searching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identifying-geolocation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geolocation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automatingwebitesosint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automating Web Osint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-osint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI in OSINT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sherlock
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sherlock
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sherlock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Beginner
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Beginner
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#module-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Module Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-understanding-sherlock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Understanding Sherlock
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Understanding Sherlock">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-sherlock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Sherlock?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-functionality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Functionality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#platform-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platform Coverage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-cases-in-osint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Cases in OSINT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-sherlock-determines-account-existence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Sherlock Determines Account Existence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-search-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Search Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-installing-sherlock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Installing Sherlock
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Installing Sherlock">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation on Linux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation on Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-update-system-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Update System Packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Install Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-clone-sherlock-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Clone Sherlock Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-install-python-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Install Python Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-verify-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Verify Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation on macOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-windows-wsl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation on Windows (WSL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-environment-setup-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtual Environment Setup (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting-installation-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting Installation Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-running-your-first-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Running Your First Search
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Running Your First Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-single-username-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Single Username Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searching-multiple-usernames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Searching Multiple Usernames
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-search-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Search Progress
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-search-variations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Search Variations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-understanding-search-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Understanding Search Results
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Understanding Search Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#result-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Result Categories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpreting-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpreting Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-output-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Output Breakdown
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-steps-after-finding-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps After Finding Accounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-saving-search-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Saving Search Results
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Saving Search Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text-file-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text File Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-format-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Format Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv-format-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSV Format Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizing-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organizing Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-common-beginner-mistakes-to-avoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Common Beginner Mistakes to Avoid
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Common Beginner Mistakes to Avoid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mistake-1-assuming-sherlock-confirms-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 1: Assuming Sherlock Confirms Identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-2-searching-without-proper-internet-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 2: Searching Without Proper Internet Connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-3-not-manually-verifying-found-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 3: Not Manually Verifying Found Accounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-4-using-overly-common-usernames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 4: Using Overly Common Usernames
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-5-ignoring-error-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 5: Ignoring Error Messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-6-not-documenting-the-investigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 6: Not Documenting the Investigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-7-not-using-available-flags-and-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 7: Not Using Available Flags and Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-practical-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Practical Exercise
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Practical Exercise">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#your-first-investigation-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your First Investigation Task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-basic-username-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 1: Basic Username Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-save-and-review-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 2: Save and Review Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-3-manual-account-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 3: Manual Account Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-4-multiple-username-variations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 4: Multiple Username Variations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary and Next Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary and Next Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-youve-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You've Learned
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-to-intermediate-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moving to Intermediate Level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practice-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practice Recommendations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intermediate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intermediate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advancedsherlock/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sherlockprojectideas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instagram OSINT
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Instagram OSINT
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../socialmedia/instagramosint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instagram OSINT Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../socialmedia/osintgram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OSINT Instagram
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../socialmedia/privateprofiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Social Media Profiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phone Number OSINT
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Phone Number OSINT
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../phonenumberosint/phonenumber/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Phone Number OSINT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../images/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image Gallery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../external-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    External Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geolocation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Geolocation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../projects/geolocation/project1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Templates
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../geolocation.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#module-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Module Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning Objectives
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-understanding-sherlock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Understanding Sherlock
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Understanding Sherlock">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-sherlock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Sherlock?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#core-functionality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Functionality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#platform-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platform Coverage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-cases-in-osint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Cases in OSINT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-sherlock-determines-account-existence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Sherlock Determines Account Existence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-search-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Search Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-installing-sherlock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Installing Sherlock
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Installing Sherlock">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation on Linux
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation on Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-update-system-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Update System Packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-install-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Install Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-clone-sherlock-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Clone Sherlock Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-install-python-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Install Python Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-verify-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Verify Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation on macOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-on-windows-wsl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation on Windows (WSL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#virtual-environment-setup-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Virtual Environment Setup (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting-installation-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting Installation Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-running-your-first-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Running Your First Search
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Running Your First Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-single-username-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Single Username Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#searching-multiple-usernames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Searching Multiple Usernames
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-search-progress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Search Progress
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-search-variations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Search Variations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-understanding-search-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Understanding Search Results
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Understanding Search Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#result-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Result Categories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interpreting-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpreting Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-output-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sample Output Breakdown
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#next-steps-after-finding-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps After Finding Accounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-saving-search-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Saving Search Results
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Saving Search Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#text-file-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Text File Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-format-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Format Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv-format-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CSV Format Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizing-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organizing Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-common-beginner-mistakes-to-avoid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Common Beginner Mistakes to Avoid
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Common Beginner Mistakes to Avoid">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mistake-1-assuming-sherlock-confirms-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 1: Assuming Sherlock Confirms Identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-2-searching-without-proper-internet-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 2: Searching Without Proper Internet Connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-3-not-manually-verifying-found-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 3: Not Manually Verifying Found Accounts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-4-using-overly-common-usernames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 4: Using Overly Common Usernames
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-5-ignoring-error-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 5: Ignoring Error Messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-6-not-documenting-the-investigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 6: Not Documenting the Investigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mistake-7-not-using-available-flags-and-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mistake 7: Not Using Available Flags and Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-practical-exercise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Practical Exercise
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Practical Exercise">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#your-first-investigation-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your First Investigation Task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-basic-username-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 1: Basic Username Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-save-and-review-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 2: Save and Review Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-3-manual-account-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 3: Manual Account Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-4-multiple-username-variations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 4: Multiple Username Variations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary and Next Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary and Next Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-youve-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You've Learned
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-to-intermediate-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Moving to Intermediate Level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practice-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practice Recommendations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/Njoxpy/osint/edit/main/docs/beginnersherlock.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/Njoxpy/osint/raw/main/docs/beginnersherlock.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
+    </a>
+  
+
+
+<h1 id="beginners-guide-to-sherlock">Beginner's Guide to Sherlock<a class="headerlink" href="#beginners-guide-to-sherlock" title="Permanent link">&para;</a></h1>
+<h2 id="module-overview">Module Overview<a class="headerlink" href="#module-overview" title="Permanent link">&para;</a></h2>
+<p>This comprehensive beginner's guide introduces you to Sherlock, a powerful username enumeration tool used in Open Source Intelligence (OSINT) investigations. By the end of this module, you will understand how to install, configure, and effectively use Sherlock for username discovery across multiple platforms.</p>
+<h3 id="learning-objectives">Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permanent link">&para;</a></h3>
+<p>By completing this module, you will be able to:</p>
+<ol>
+<li>Understand Sherlock's core functionality and capabilities</li>
+<li>Successfully install and configure Sherlock on your system</li>
+<li>Execute basic and advanced username searches</li>
+<li>Interpret search results accurately</li>
+<li>Save and organize investigation data</li>
+<li>Avoid common beginner mistakes</li>
+<li>Conduct preliminary account verification</li>
+</ol>
+<hr />
+<h2 id="1-understanding-sherlock">1. Understanding Sherlock<a class="headerlink" href="#1-understanding-sherlock" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-sherlock">What is Sherlock?<a class="headerlink" href="#what-is-sherlock" title="Permanent link">&para;</a></h3>
+<p>Sherlock is a Python-based OSINT tool designed to automate the process of username enumeration across hundreds of social media platforms, forums, and websites. Rather than manually checking each platform individually, Sherlock streamlines the investigation process by simultaneously querying over 400 platforms for a specific username.</p>
+<h3 id="core-functionality">Core Functionality<a class="headerlink" href="#core-functionality" title="Permanent link">&para;</a></h3>
+<p><strong>Primary Purpose</strong>: Determine whether a specific username exists on various online platforms</p>
+<p><strong>How It Works</strong>:</p>
+<ol>
+<li>Takes a username as input</li>
+<li>Queries hundreds of websites simultaneously</li>
+<li>Analyzes HTTP responses to determine account existence</li>
+<li>Reports findings with direct links to discovered accounts</li>
+</ol>
+<h3 id="platform-coverage">Platform Coverage<a class="headerlink" href="#platform-coverage" title="Permanent link">&para;</a></h3>
+<p>Sherlock searches across diverse categories including:</p>
+<p><strong>Social Media Platforms</strong>:</p>
+<ul>
+<li>Instagram</li>
+<li>Facebook</li>
+<li>Twitter/X</li>
+<li>TikTok</li>
+<li>LinkedIn</li>
+<li>Snapchat</li>
+<li>Pinterest</li>
+</ul>
+<p><strong>Developer Communities</strong>:</p>
+<ul>
+<li>GitHub</li>
+<li>GitLab</li>
+<li>Stack Overflow</li>
+<li>Dev.to</li>
+<li>CodePen</li>
+<li>HackerRank</li>
+</ul>
+<p><strong>Content Platforms</strong>:</p>
+<ul>
+<li>Medium</li>
+<li>WordPress</li>
+<li>Blogger</li>
+<li>YouTube</li>
+<li>Vimeo</li>
+<li>SoundCloud</li>
+</ul>
+<p><strong>Gaming Networks</strong>:</p>
+<ul>
+<li>Steam</li>
+<li>Xbox Live</li>
+<li>PlayStation Network</li>
+<li>Twitch</li>
+<li>Discord</li>
+</ul>
+<p><strong>Forums and Communities</strong>:</p>
+<ul>
+<li>Reddit</li>
+<li>Quora</li>
+<li>4chan</li>
+<li>Discord</li>
+<li>Telegram</li>
+</ul>
+<p><strong>Professional Networks</strong>:</p>
+<ul>
+<li>LinkedIn</li>
+<li>AngelList</li>
+<li>Behance</li>
+<li>Dribbble</li>
+</ul>
+<p><strong>Total Coverage</strong>: Over 400 platforms and growing</p>
+<h3 id="use-cases-in-osint">Use Cases in OSINT<a class="headerlink" href="#use-cases-in-osint" title="Permanent link">&para;</a></h3>
+<p><strong>Digital Footprint Analysis</strong>:</p>
+<ul>
+<li>Map an individual's online presence</li>
+<li>Identify all platforms where a person maintains accounts</li>
+<li>Track username consistency across platforms</li>
+</ul>
+<p><strong>Identity Verification</strong>:</p>
+<ul>
+<li>Confirm the authenticity of claimed identities</li>
+<li>Cross-reference information across multiple platforms</li>
+<li>Detect inconsistencies in profile information</li>
+</ul>
+<p><strong>Investigation Support</strong>:</p>
+<ul>
+<li>Background research for due diligence</li>
+<li>Cybersecurity threat intelligence</li>
+<li>Brand monitoring and protection</li>
+<li>Journalistic research</li>
+</ul>
+<p><strong>Security Applications</strong>:</p>
+<ul>
+<li>Identify potential data exposure</li>
+<li>Assess personal information leakage</li>
+<li>Evaluate privacy posture</li>
+</ul>
+<h3 id="how-sherlock-determines-account-existence">How Sherlock Determines Account Existence<a class="headerlink" href="#how-sherlock-determines-account-existence" title="Permanent link">&para;</a></h3>
+<p>Sherlock uses multiple detection methods:</p>
+<p><strong>HTTP Status Code Analysis</strong>:</p>
+<ul>
+<li><strong>200 OK</strong>: Account exists and is accessible</li>
+<li><strong>404 Not Found</strong>: Username does not exist on platform</li>
+<li><strong>403 Forbidden</strong>: Platform blocks or restricts access</li>
+<li><strong>429 Too Many Requests</strong>: Rate limiting in effect</li>
+</ul>
+<p><strong>Response Message Analysis</strong>:</p>
+<ul>
+<li>Searches for specific error messages indicating non-existence</li>
+<li>Identifies platform-specific "user not found" messages</li>
+<li>Analyzes page content for account indicators</li>
+</ul>
+<p><strong>URL Redirect Detection</strong>:</p>
+<ul>
+<li>Monitors redirects to error pages</li>
+<li>Tracks changes in response URLs</li>
+<li>Identifies platform-specific redirect patterns</li>
+</ul>
+<h3 id="example-search-workflow">Example Search Workflow<a class="headerlink" href="#example-search-workflow" title="Permanent link">&para;</a></h3>
+<p><strong>Input Command</strong>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>njoxlee
+</span></code></pre></div>
+<p><strong>Sherlock's Process</strong>:</p>
+<ol>
+<li>Reads the username "njoxlee"</li>
+<li>Queries 400+ platforms simultaneously</li>
+<li>Analyzes each platform's response</li>
+<li>Categorizes results as Found, Not Found, or Error</li>
+<li>Displays results with direct account URLs</li>
+</ol>
+<p><strong>Expected Output Format</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[*] Checking username njoxlee on:
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>[+] Instagram: https://instagram.com/njoxlee
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>[+] GitHub: https://github.com/njoxlee
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>[+] Twitter: https://twitter.com/njoxlee
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>[-] Reddit: Not found
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>[-] Facebook: Not found
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>[!] TikTok: Error (Rate limited)
+</span></code></pre></div>
+<p>This automated process saves investigators hours of manual checking across hundreds of platforms.</p>
+<hr />
+<h2 id="2-installing-sherlock">2. Installing Sherlock<a class="headerlink" href="#2-installing-sherlock" title="Permanent link">&para;</a></h2>
+<h3 id="system-requirements">System Requirements<a class="headerlink" href="#system-requirements" title="Permanent link">&para;</a></h3>
+<p><strong>Operating System</strong>:</p>
+<ul>
+<li>Linux (Ubuntu, Debian, Kali, Arch)</li>
+<li>macOS (10.12 or later)</li>
+<li>Windows (with WSL or native Python)</li>
+</ul>
+<p><strong>Software Requirements</strong>:</p>
+<ul>
+<li>Python 3.7 or higher</li>
+<li>pip (Python package installer)</li>
+<li>Git version control</li>
+<li>Internet connection</li>
+</ul>
+<h3 id="installation-on-linux">Installation on Linux<a class="headerlink" href="#installation-on-linux" title="Permanent link">&para;</a></h3>
+<h4 id="step-1-update-system-packages">Step 1: Update System Packages<a class="headerlink" href="#step-1-update-system-packages" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Update package repositories</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Upgrade existing packages</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</span></code></pre></div>
+<h4 id="step-2-install-prerequisites">Step 2: Install Prerequisites<a class="headerlink" href="#step-2-install-prerequisites" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Install Python 3, pip, and Git</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span>git<span class="w"> </span>-y
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Verify installations</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>python3<span class="w"> </span>--version<span class="w">  </span><span class="c1"># Should show Python 3.7+</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>pip3<span class="w"> </span>--version<span class="w">     </span><span class="c1"># Should show pip version</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>git<span class="w"> </span>--version<span class="w">      </span><span class="c1"># Should show Git version</span>
+</span></code></pre></div>
+<h4 id="step-3-clone-sherlock-repository">Step 3: Clone Sherlock Repository<a class="headerlink" href="#step-3-clone-sherlock-repository" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Clone from GitHub</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/sherlock-project/sherlock.git
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Navigate to the directory</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nb">cd</span><span class="w"> </span>sherlock
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># View directory contents</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>ls<span class="w"> </span>-la
+</span></code></pre></div>
+<h4 id="step-4-install-python-dependencies">Step 4: Install Python Dependencies<a class="headerlink" href="#step-4-install-python-dependencies" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Install required packages</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Alternative: Install in user directory (no sudo needed)</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>pip3<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span></code></pre></div>
+<h4 id="step-5-verify-installation">Step 5: Verify Installation<a class="headerlink" href="#step-5-verify-installation" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Test Sherlock installation</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>--help
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Expected output: Help menu with usage instructions</span>
+</span></code></pre></div>
+<h3 id="installation-on-macos">Installation on macOS<a class="headerlink" href="#installation-on-macos" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Install Homebrew (if not already installed)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Install Python and Git</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>brew<span class="w"> </span>install<span class="w"> </span>python<span class="w"> </span>git
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Clone and install Sherlock</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/sherlock-project/sherlock.git
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="nb">cd</span><span class="w"> </span>sherlock
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="c1"># Verify installation</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>--help
+</span></code></pre></div>
+<h3 id="installation-on-windows-wsl">Installation on Windows (WSL)<a class="headerlink" href="#installation-on-windows-wsl" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Enable WSL and install Ubuntu from Microsoft Store</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># Then follow Linux installation steps</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Or use native Windows Python:</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># 1. Install Python from python.org</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1"># 2. Install Git from git-scm.com</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># 3. Open PowerShell or Command Prompt</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1"># 4. Follow the same git clone and pip install steps</span>
+</span></code></pre></div>
+<h3 id="virtual-environment-setup-recommended">Virtual Environment Setup (Recommended)<a class="headerlink" href="#virtual-environment-setup-recommended" title="Permanent link">&para;</a></h3>
+<p>Using a virtual environment prevents dependency conflicts:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Navigate to Sherlock directory</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">cd</span><span class="w"> </span>sherlock
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Create virtual environment</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># Activate virtual environment</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="nb">source</span><span class="w"> </span>venv/bin/activate<span class="w">  </span><span class="c1"># Linux/macOS</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="c1"># OR</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate<span class="w">     </span><span class="c1"># Windows</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="c1"># Install dependencies in virtual environment</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="c1"># Deactivate when done</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>deactivate
+</span></code></pre></div>
+<h3 id="troubleshooting-installation-issues">Troubleshooting Installation Issues<a class="headerlink" href="#troubleshooting-installation-issues" title="Permanent link">&para;</a></h3>
+<p><strong>Issue: Permission Denied</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Solution: Use --user flag</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>pip3<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span></code></pre></div>
+<p><strong>Issue: Python Command Not Found</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Solution: Use python3 explicitly</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>username
+</span></code></pre></div>
+<p><strong>Issue: Module Not Found</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Solution: Reinstall dependencies</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>pip3<span class="w"> </span>install<span class="w"> </span>--force-reinstall<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span></code></pre></div>
+<hr />
+<h2 id="3-running-your-first-search">3. Running Your First Search<a class="headerlink" href="#3-running-your-first-search" title="Permanent link">&para;</a></h2>
+<h3 id="basic-single-username-search">Basic Single Username Search<a class="headerlink" href="#basic-single-username-search" title="Permanent link">&para;</a></h3>
+<p><strong>Command Structure</strong>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>python3<span class="w"> </span>sherlock<span class="w"> </span><span class="o">[</span>username<span class="o">]</span>
+</span></code></pre></div>
+<p><strong>Example</strong>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>njoxlee
+</span></code></pre></div>
+<p><strong>What Happens</strong>:</p>
+<ol>
+<li>Sherlock loads its platform database</li>
+<li>Initiates simultaneous HTTP requests</li>
+<li>Analyzes responses from each platform</li>
+<li>Displays results in real-time</li>
+<li>Provides direct links to found accounts</li>
+</ol>
+<h3 id="searching-multiple-usernames">Searching Multiple Usernames<a class="headerlink" href="#searching-multiple-usernames" title="Permanent link">&para;</a></h3>
+<p><strong>Command</strong>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>username1<span class="w"> </span>username2<span class="w"> </span>username3
+</span></code></pre></div>
+<p><strong>Example</strong>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>njoxlee<span class="w"> </span>lee_njox<span class="w"> </span>njox
+</span></code></pre></div>
+<p><strong>Use Cases</strong>:</p>
+<ul>
+<li>Search username variations simultaneously</li>
+<li>Compare results across different aliases</li>
+<li>Investigate related accounts</li>
+<li>Identify username patterns</li>
+</ul>
+<h3 id="understanding-search-progress">Understanding Search Progress<a class="headerlink" href="#understanding-search-progress" title="Permanent link">&para;</a></h3>
+<p>During execution, Sherlock displays:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>[*] Checking username njoxlee on:
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>[*] 100 sites to check
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>[+] Found on 23 platforms
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>[-] Not found on 75 platforms
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>[!] 2 errors encountered
+</span></code></pre></div>
+<p><strong>Progress Indicators</strong>:</p>
+<ul>
+<li>Total platforms queried</li>
+<li>Number of successful discoveries</li>
+<li>Failed or non-existent accounts</li>
+<li>Errors or blocked requests</li>
+</ul>
+<h3 id="common-search-variations">Common Search Variations<a class="headerlink" href="#common-search-variations" title="Permanent link">&para;</a></h3>
+<p><strong>Case Sensitivity</strong>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Different cases may yield different results</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>JohnDoe
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>johndoe
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>JOHNDOE
+</span></code></pre></div>
+<p><strong>Special Characters</strong>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># Test usernames with underscores, dots, hyphens</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>john_doe
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>john.doe
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>john-doe
+</span></code></pre></div>
+<hr />
+<h2 id="4-understanding-search-results">4. Understanding Search Results<a class="headerlink" href="#4-understanding-search-results" title="Permanent link">&para;</a></h2>
+<h3 id="result-categories">Result Categories<a class="headerlink" href="#result-categories" title="Permanent link">&para;</a></h3>
+<p><strong>Found Accounts (Positive Results)</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>[+] Instagram: https://instagram.com/njoxlee
+</span></code></pre></div>
+<ul>
+<li>Username exists on the platform</li>
+<li>Direct link provided to the account</li>
+<li>Requires manual verification for ownership confirmation</li>
+</ul>
+<p><strong>Not Found (Negative Results)</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>[-] Reddit: Not found
+</span></code></pre></div>
+<ul>
+<li>Username does not exist on this platform</li>
+<li>Account may have been deleted or never created</li>
+<li>Username might be available for registration</li>
+</ul>
+<p><strong>Errors (Inconclusive Results)</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>[!] TikTok: Error (Connection timeout)
+</span></code></pre></div>
+<ul>
+<li>Platform couldn't be checked successfully</li>
+<li>Common causes: Rate limiting, blocking, server issues</li>
+<li>Requires manual verification or retry</li>
+</ul>
+<h3 id="interpreting-results">Interpreting Results<a class="headerlink" href="#interpreting-results" title="Permanent link">&para;</a></h3>
+<p><strong>High Confidence Indicators</strong>:</p>
+<ul>
+<li>Multiple found accounts with similar profile information</li>
+<li>Consistent profile pictures across platforms</li>
+<li>Matching biographical information</li>
+<li>Linked accounts or cross-references</li>
+</ul>
+<p><strong>Low Confidence Indicators</strong>:</p>
+<ul>
+<li>Very common username (e.g., "john123")</li>
+<li>Inconsistent profile information</li>
+<li>Abandoned or inactive accounts</li>
+<li>Generic or placeholder content</li>
+</ul>
+<h3 id="sample-output-breakdown">Sample Output Breakdown<a class="headerlink" href="#sample-output-breakdown" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>[*] Checking username njoxlee on:
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>[+] GitHub: https://github.com/njoxlee
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>    Status: Found
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    Response Time: 0.34s
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>[+] Instagram: https://instagram.com/njoxlee
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>    Status: Found
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>    Response Time: 0.52s
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>[-] Twitter: Not found
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>    Status: 404 Not Found
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>[!] Facebook: Error
+</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>    Status: Rate limited
+</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a>    Response: 429 Too Many Requests
+</span></code></pre></div>
+<h3 id="next-steps-after-finding-accounts">Next Steps After Finding Accounts<a class="headerlink" href="#next-steps-after-finding-accounts" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Click on Found Links</strong>: Visit each discovered account</li>
+<li><strong>Profile Analysis</strong>: Examine profile information</li>
+<li><strong>Content Review</strong>: Check posts, photos, comments</li>
+<li><strong>Connection Analysis</strong>: Look for linked accounts</li>
+<li><strong>Timestamp Verification</strong>: Note account creation dates</li>
+<li><strong>Activity Assessment</strong>: Determine if account is active</li>
+</ol>
+<hr />
+<h2 id="5-saving-search-results">5. Saving Search Results<a class="headerlink" href="#5-saving-search-results" title="Permanent link">&para;</a></h2>
+<h3 id="text-file-output">Text File Output<a class="headerlink" href="#text-file-output" title="Permanent link">&para;</a></h3>
+<p><strong>Basic Text Format</strong>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>njoxlee<span class="w"> </span>--output<span class="w"> </span>results.txt
+</span></code></pre></div>
+<p><strong>Features</strong>:</p>
+<ul>
+<li>Human-readable format</li>
+<li>Easy to share and review</li>
+<li>Simple text editor compatible</li>
+<li>Good for quick reference</li>
+</ul>
+<p><strong>Output Location</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>sherlock/results/njoxlee.txt
+</span></code></pre></div>
+<p><strong>Sample Content</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Username: njoxlee
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>Search Date: 2025-11-16 10:30:45
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>Found Accounts:
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>1. GitHub: https://github.com/njoxlee
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>2. Instagram: https://instagram.com/njoxlee
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>3. Medium: https://medium.com/@njoxlee
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>Not Found:
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a>- Twitter
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a>- Reddit
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>- Facebook
+</span></code></pre></div>
+<h3 id="json-format-output">JSON Format Output<a class="headerlink" href="#json-format-output" title="Permanent link">&para;</a></h3>
+<p><strong>Command</strong>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>njoxlee<span class="w"> </span>--json<span class="w"> </span>results.json
+</span></code></pre></div>
+<p><strong>Advantages</strong>:</p>
+<ul>
+<li>Structured data format</li>
+<li>Easy to parse programmatically</li>
+<li>Integration with other tools</li>
+<li>Better for data analysis</li>
+</ul>
+<p><strong>Sample JSON Structure</strong>:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="p">{</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">  </span><span class="nt">&quot;njoxlee&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">    </span><span class="nt">&quot;GitHub&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/njoxlee&quot;</span><span class="p">,</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">      </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;found&quot;</span><span class="p">,</span>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w">      </span><span class="nt">&quot;http_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="w">      </span><span class="nt">&quot;response_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.34</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="w">    </span><span class="nt">&quot;Instagram&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://instagram.com/njoxlee&quot;</span><span class="p">,</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="w">      </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;found&quot;</span><span class="p">,</span>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="w">      </span><span class="nt">&quot;http_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span>
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a><span class="w">      </span><span class="nt">&quot;response_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.52</span>
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a><span class="w">    </span><span class="nt">&quot;Twitter&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a><span class="w">      </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;not_found&quot;</span><span class="p">,</span>
+</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a><span class="w">      </span><span class="nt">&quot;http_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">404</span>
+</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-28-20"><a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="csv-format-output">CSV Format Output<a class="headerlink" href="#csv-format-output" title="Permanent link">&para;</a></h3>
+<p><strong>Command</strong>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>njoxlee<span class="w"> </span>--csv<span class="w"> </span>results.csv
+</span></code></pre></div>
+<p><strong>Use Cases</strong>:</p>
+<ul>
+<li>Spreadsheet analysis</li>
+<li>Database import</li>
+<li>Bulk processing</li>
+<li>Comparative analysis</li>
+</ul>
+<h3 id="organizing-results">Organizing Results<a class="headerlink" href="#organizing-results" title="Permanent link">&para;</a></h3>
+<p><strong>Directory Structure</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>investigations/
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>├── case001_njoxlee/
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>│   ├── sherlock_results.txt
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>│   ├── sherlock_results.json
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>│   ├── screenshots/
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>│   └── analysis_notes.md
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>├── case002_johndoe/
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>│   └── ...
+</span></code></pre></div>
+<p><strong>Best Practices</strong>:</p>
+<ul>
+<li>Create separate folders for each investigation</li>
+<li>Include timestamps in filenames</li>
+<li>Maintain backup copies</li>
+<li>Document analysis findings separately</li>
+</ul>
+<hr />
+<h2 id="6-common-beginner-mistakes-to-avoid">6. Common Beginner Mistakes to Avoid<a class="headerlink" href="#6-common-beginner-mistakes-to-avoid" title="Permanent link">&para;</a></h2>
+<h3 id="mistake-1-assuming-sherlock-confirms-identity">Mistake 1: Assuming Sherlock Confirms Identity<a class="headerlink" href="#mistake-1-assuming-sherlock-confirms-identity" title="Permanent link">&para;</a></h3>
+<p><strong>The Problem</strong>:
+Many beginners believe that finding a username on a platform automatically confirms it belongs to their target person.</p>
+<p><strong>Reality</strong>:</p>
+<ul>
+<li>Sherlock only checks if a username exists</li>
+<li>It does NOT verify who owns the account</li>
+<li>Multiple people can have similar usernames</li>
+<li>Accounts can be abandoned, fake, or impersonation</li>
+</ul>
+<p><strong>Solution</strong>:
+Always perform manual verification:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>1. Visit the discovered account
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>2. Check profile picture
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>3. Review bio and description
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>4. Examine posts and content
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>5. Look for verification badges
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>6. Cross-reference with known information
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>7. Compare timestamps and activity
+</span></code></pre></div>
+<p><strong>Example Verification Checklist</strong>:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Profile picture matches known photos</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Bio contains accurate information</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Location matches target's location</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Posting language and style match</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Account creation date is logical</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Friends/followers include known associates</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Content relates to known interests</li>
+</ul>
+<h3 id="mistake-2-searching-without-proper-internet-connection">Mistake 2: Searching Without Proper Internet Connection<a class="headerlink" href="#mistake-2-searching-without-proper-internet-connection" title="Permanent link">&para;</a></h3>
+<p><strong>The Problem</strong>:
+Sherlock requires stable internet to query hundreds of websites.</p>
+<p><strong>Common Issues</strong>:</p>
+<ul>
+<li>Intermittent connections cause incomplete results</li>
+<li>VPN disconnections mid-search</li>
+<li>Network timeouts lead to errors</li>
+<li>Rate limiting from unstable connections</li>
+</ul>
+<p><strong>Solution</strong>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="c1"># Test internet connection first</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>google.com
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="c1"># Use stable wired connection when possible</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="c1"># Consider using --timeout flag for slow connections</span>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>username<span class="w"> </span>--timeout<span class="w"> </span><span class="m">30</span>
+</span></code></pre></div>
+<h3 id="mistake-3-not-manually-verifying-found-accounts">Mistake 3: Not Manually Verifying Found Accounts<a class="headerlink" href="#mistake-3-not-manually-verifying-found-accounts" title="Permanent link">&para;</a></h3>
+<p><strong>The Problem</strong>:
+Accepting Sherlock results without verification leads to false conclusions.</p>
+<p><strong>What You Must Check</strong>:</p>
+<p><strong>Profile Picture</strong>:</p>
+<ul>
+<li>Download and reverse image search</li>
+<li>Check if it's a stock photo</li>
+<li>Compare across multiple platforms</li>
+</ul>
+<p><strong>Biography/Description</strong>:</p>
+<ul>
+<li>Does it contain accurate details?</li>
+<li>Is the writing style consistent?</li>
+<li>Are there verifiable claims?</li>
+</ul>
+<p><strong>Posts and Content</strong>:</p>
+<ul>
+<li>Review recent activity</li>
+<li>Check posting frequency</li>
+<li>Analyze content themes</li>
+<li>Look for personal information</li>
+</ul>
+<p><strong>Links and References</strong>:</p>
+<ul>
+<li>Check linked websites</li>
+<li>Verify email addresses</li>
+<li>Examine connected accounts</li>
+</ul>
+<p><strong>Activity Patterns</strong>:</p>
+<ul>
+<li>When was the account created?</li>
+<li>Is it currently active?</li>
+<li>Regular posting schedule?</li>
+<li>Engagement with others?</li>
+</ul>
+<h3 id="mistake-4-using-overly-common-usernames">Mistake 4: Using Overly Common Usernames<a class="headerlink" href="#mistake-4-using-overly-common-usernames" title="Permanent link">&para;</a></h3>
+<p><strong>The Problem</strong>:
+Searching generic usernames produces too many irrelevant results.</p>
+<p><strong>Examples of Poor Username Choices</strong>:</p>
+<ul>
+<li>john123</li>
+<li>user1234</li>
+<li>admin</li>
+<li>test</li>
+<li>mike</li>
+<li>alex2000</li>
+</ul>
+<p><strong>Why This Fails</strong>:</p>
+<ul>
+<li>Thousands of people use these usernames</li>
+<li>Impossible to determine which account is relevant</li>
+<li>Wastes investigation time</li>
+<li>Leads to false conclusions</li>
+</ul>
+<p><strong>Better Approach</strong>:
+Search for unique, specific usernames:</p>
+<ul>
+<li>Unusual combinations: "njoxlee_dev"</li>
+<li>Unique identifiers: "njoxlee1990tz"</li>
+<li>Platform-specific handles: "<a class="magiclink magiclink-github magiclink-mention" href="https://github.com/njoxlee_official" title="GitHub User: njoxlee_official">@njoxlee_official</a>"</li>
+<li>Known aliases from other sources</li>
+</ul>
+<h3 id="mistake-5-ignoring-error-messages">Mistake 5: Ignoring Error Messages<a class="headerlink" href="#mistake-5-ignoring-error-messages" title="Permanent link">&para;</a></h3>
+<p><strong>The Problem</strong>:
+Dismissing errors without understanding their cause.</p>
+<p><strong>Common Errors and Meanings</strong>:</p>
+<p><strong>Rate Limiting (429)</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>[!] Instagram: Error (Rate limited)
+</span></code></pre></div>
+<ul>
+<li>Too many requests in short time</li>
+<li>Platform blocking automated queries</li>
+<li>Solution: Wait and retry, use --tor flag</li>
+</ul>
+<p><strong>Connection Timeout</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>[!] Site: Error (Connection timeout)
+</span></code></pre></div>
+<ul>
+<li>Platform server not responding</li>
+<li>Network connectivity issues</li>
+<li>Solution: Retry later, check internet</li>
+</ul>
+<p><strong>Access Denied (403)</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>[!] Platform: Error (Access forbidden)
+</span></code></pre></div>
+<ul>
+<li>Platform blocking your IP or user agent</li>
+<li>Geographic restrictions</li>
+<li>Solution: Use VPN or Tor</li>
+</ul>
+<h3 id="mistake-6-not-documenting-the-investigation">Mistake 6: Not Documenting the Investigation<a class="headerlink" href="#mistake-6-not-documenting-the-investigation" title="Permanent link">&para;</a></h3>
+<p><strong>The Problem</strong>:
+Failing to record findings leads to lost information and unprofessional results.</p>
+<p><strong>What to Document</strong>:</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="gu">## Investigation Report</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="gs">**Target Username**</span>: njoxlee
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="gs">**Date**</span>: 2025-11-16
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="gs">**Investigator**</span>: [Your name]
+</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>
+</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="gu">### Sherlock Results Summary</span>
+</span><span id="__span-36-8"><a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>
+</span><span id="__span-36-9"><a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a><span class="k">-</span><span class="w"> </span>Platforms checked: 412
+</span><span id="__span-36-10"><a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a><span class="k">-</span><span class="w"> </span>Accounts found: 23
+</span><span id="__span-36-11"><a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a><span class="k">-</span><span class="w"> </span>High confidence: 18
+</span><span id="__span-36-12"><a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a><span class="k">-</span><span class="w"> </span>Requires verification: 5
+</span><span id="__span-36-13"><a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a>
+</span><span id="__span-36-14"><a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a><span class="gu">### Verified Accounts</span>
+</span><span id="__span-36-15"><a id="__codelineno-36-15" name="__codelineno-36-15" href="#__codelineno-36-15"></a>
+</span><span id="__span-36-16"><a id="__codelineno-36-16" name="__codelineno-36-16" href="#__codelineno-36-16"></a><span class="k">1.</span> GitHub (https://github.com/njoxlee)
+</span><span id="__span-36-17"><a id="__codelineno-36-17" name="__codelineno-36-17" href="#__codelineno-36-17"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>Profile pic matches
+</span><span id="__span-36-18"><a id="__codelineno-36-18" name="__codelineno-36-18" href="#__codelineno-36-18"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>Bio contains accurate info
+</span><span id="__span-36-19"><a id="__codelineno-36-19" name="__codelineno-36-19" href="#__codelineno-36-19"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>Active within last week
+</span><span id="__span-36-20"><a id="__codelineno-36-20" name="__codelineno-36-20" href="#__codelineno-36-20"></a><span class="k">2.</span> Instagram (https://instagram.com/njoxlee)
+</span><span id="__span-36-21"><a id="__codelineno-36-21" name="__codelineno-36-21" href="#__codelineno-36-21"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>Profile pic matches
+</span><span id="__span-36-22"><a id="__codelineno-36-22" name="__codelineno-36-22" href="#__codelineno-36-22"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>Follower count: 1.2k
+</span><span id="__span-36-23"><a id="__codelineno-36-23" name="__codelineno-36-23" href="#__codelineno-36-23"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>Content aligns with interests
+</span><span id="__span-36-24"><a id="__codelineno-36-24" name="__codelineno-36-24" href="#__codelineno-36-24"></a>
+</span><span id="__span-36-25"><a id="__codelineno-36-25" name="__codelineno-36-25" href="#__codelineno-36-25"></a><span class="gu">### Notes</span>
+</span><span id="__span-36-26"><a id="__codelineno-36-26" name="__codelineno-36-26" href="#__codelineno-36-26"></a>
+</span><span id="__span-36-27"><a id="__codelineno-36-27" name="__codelineno-36-27" href="#__codelineno-36-27"></a><span class="k">-</span><span class="w"> </span>All accounts created between 2018-2020
+</span><span id="__span-36-28"><a id="__codelineno-36-28" name="__codelineno-36-28" href="#__codelineno-36-28"></a><span class="k">-</span><span class="w"> </span>Consistent profile pictures
+</span><span id="__span-36-29"><a id="__codelineno-36-29" name="__codelineno-36-29" href="#__codelineno-36-29"></a><span class="k">-</span><span class="w"> </span>Similar bio descriptions
+</span><span id="__span-36-30"><a id="__codelineno-36-30" name="__codelineno-36-30" href="#__codelineno-36-30"></a><span class="k">-</span><span class="w"> </span>Cross-references found between platforms
+</span></code></pre></div>
+<h3 id="mistake-7-not-using-available-flags-and-options">Mistake 7: Not Using Available Flags and Options<a class="headerlink" href="#mistake-7-not-using-available-flags-and-options" title="Permanent link">&para;</a></h3>
+<p><strong>The Problem</strong>:
+Running only basic searches without utilizing Sherlock's advanced features.</p>
+<p><strong>Useful Flags to Learn</strong>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="c1"># Save time with timeout settings</span>
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>username<span class="w"> </span>--timeout<span class="w"> </span><span class="m">10</span>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="c1"># Use Tor for anonymity</span>
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>username<span class="w"> </span>--tor
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>
+</span><span id="__span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="c1"># Search only specific sites</span>
+</span><span id="__span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>username<span class="w"> </span>--site<span class="w"> </span>GitHub<span class="w"> </span>--site<span class="w"> </span>Twitter
+</span><span id="__span-37-9"><a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>
+</span><span id="__span-37-10"><a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a><span class="c1"># Verbose output for debugging</span>
+</span><span id="__span-37-11"><a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>username<span class="w"> </span>--verbose
+</span><span id="__span-37-12"><a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a>
+</span><span id="__span-37-13"><a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a><span class="c1"># Print only found accounts</span>
+</span><span id="__span-37-14"><a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>username<span class="w"> </span>--print-found
+</span></code></pre></div>
+<hr />
+<h2 id="7-practical-exercise">7. Practical Exercise<a class="headerlink" href="#7-practical-exercise" title="Permanent link">&para;</a></h2>
+<h3 id="your-first-investigation-task">Your First Investigation Task<a class="headerlink" href="#your-first-investigation-task" title="Permanent link">&para;</a></h3>
+<p>Complete these exercises to solidify your understanding:</p>
+<h3 id="exercise-1-basic-username-search">Exercise 1: Basic Username Search<a class="headerlink" href="#exercise-1-basic-username-search" title="Permanent link">&para;</a></h3>
+<p><strong>Objective</strong>: Perform your first successful Sherlock search</p>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Choose a username (use your own or a public figure)</li>
+<li>Navigate to Sherlock directory:
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nb">cd</span><span class="w"> </span>sherlock
+</span></code></pre></div></li>
+<li>Run the search:
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>python3<span class="w"> </span>sherlock<span class="w"> </span><span class="o">[</span>USERNAME<span class="o">]</span>
+</span></code></pre></div></li>
+<li>Wait for results to complete</li>
+<li>Count how many platforms were checked</li>
+<li>Note how many accounts were found</li>
+</ol>
+<p><strong>Questions to Answer</strong>:</p>
+<ul>
+<li>How many platforms did Sherlock check?</li>
+<li>How many accounts were found?</li>
+<li>Were there any errors?</li>
+<li>Which platforms had the most results?</li>
+</ul>
+<h3 id="exercise-2-save-and-review-results">Exercise 2: Save and Review Results<a class="headerlink" href="#exercise-2-save-and-review-results" title="Permanent link">&para;</a></h3>
+<p><strong>Objective</strong>: Learn to save and organize investigation data</p>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Run a search with output flag:
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>python3<span class="w"> </span>sherlock<span class="w"> </span><span class="o">[</span>USERNAME<span class="o">]</span><span class="w"> </span>--output<span class="w"> </span>myresult.txt
+</span></code></pre></div></li>
+<li>Locate the output file:
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="nb">cd</span><span class="w"> </span>results
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>ls<span class="w"> </span>-l
+</span></code></pre></div></li>
+<li>View the contents:
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>cat<span class="w"> </span>myresult.txt
+</span></code></pre></div></li>
+<li>Create a JSON version:
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>python3<span class="w"> </span>sherlock<span class="w"> </span><span class="o">[</span>USERNAME<span class="o">]</span><span class="w"> </span>--json<span class="w"> </span>myresult.json
+</span></code></pre></div></li>
+</ol>
+<p><strong>Tasks</strong>:</p>
+<ul>
+<li>Open both text and JSON files</li>
+<li>Compare the formats</li>
+<li>Identify which format you prefer for analysis</li>
+<li>Create a folder structure to organize results</li>
+</ul>
+<h3 id="exercise-3-manual-account-verification">Exercise 3: Manual Account Verification<a class="headerlink" href="#exercise-3-manual-account-verification" title="Permanent link">&para;</a></h3>
+<p><strong>Objective</strong>: Practice verifying discovered accounts</p>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Select one "Found" account from your results</li>
+<li>Click the provided URL</li>
+<li>Analyze the account using this checklist:</li>
+</ol>
+<p><strong>Verification Checklist</strong>:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Account is accessible and active</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Profile picture is present</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Bio/description contains information</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Recent posts or activity visible</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Followers/following counts seem legitimate</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Content matches expected interests</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> No obvious signs of fake/bot account</p>
+</li>
+<li>
+<p>Take a screenshot of the profile</p>
+</li>
+<li>Document your findings:</li>
+</ul>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="gu">## Account Verification</span>
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>
+</span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="gs">**Platform**</span>: [Platform name]
+</span><span id="__span-44-4"><a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="gs">**URL**</span>: [Account URL]
+</span><span id="__span-44-5"><a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="gs">**Status**</span>: Active/Inactive
+</span><span id="__span-44-6"><a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="gs">**Confidence Level**</span>: High/Medium/Low
+</span><span id="__span-44-7"><a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a>
+</span><span id="__span-44-8"><a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="gs">**Observations**</span>:
+</span><span id="__span-44-9"><a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a>
+</span><span id="__span-44-10"><a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a><span class="k">-</span><span class="w"> </span>Profile picture: [Description]
+</span><span id="__span-44-11"><a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a><span class="k">-</span><span class="w"> </span>Bio: [Content]
+</span><span id="__span-44-12"><a id="__codelineno-44-12" name="__codelineno-44-12" href="#__codelineno-44-12"></a><span class="k">-</span><span class="w"> </span>Activity: [Recent posts]
+</span><span id="__span-44-13"><a id="__codelineno-44-13" name="__codelineno-44-13" href="#__codelineno-44-13"></a><span class="k">-</span><span class="w"> </span>Authenticity markers: [Verification badges, etc.]
+</span><span id="__span-44-14"><a id="__codelineno-44-14" name="__codelineno-44-14" href="#__codelineno-44-14"></a>
+</span><span id="__span-44-15"><a id="__codelineno-44-15" name="__codelineno-44-15" href="#__codelineno-44-15"></a><span class="gs">**Conclusion**</span>: [Is this likely the correct account?]
+</span></code></pre></div>
+<h3 id="exercise-4-multiple-username-variations">Exercise 4: Multiple Username Variations<a class="headerlink" href="#exercise-4-multiple-username-variations" title="Permanent link">&para;</a></h3>
+<p><strong>Objective</strong>: Search username variations to find related accounts</p>
+<p><strong>Steps</strong>:</p>
+<ol>
+<li>Create a list of username variations:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>originalname
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>original_name
+</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>original.name
+</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>originalname123
+</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>originalname2023
+</span></code></pre></div></li>
+<li>Search all variations:
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>python3<span class="w"> </span>sherlock<span class="w"> </span>original<span class="w"> </span>originalname<span class="w"> </span>original_name<span class="w"> </span>--output<span class="w"> </span>variations.txt
+</span></code></pre></div></li>
+<li>Compare results across variations</li>
+<li>Identify patterns</li>
+</ol>
+<p><strong>Analysis Questions</strong>:</p>
+<ul>
+<li>Which variation had the most results?</li>
+<li>Are there consistent accounts across variations?</li>
+<li>Do profile pictures match across platforms?</li>
+<li>Can you identify the primary username?</li>
+</ul>
+<hr />
+<h2 id="summary-and-next-steps">Summary and Next Steps<a class="headerlink" href="#summary-and-next-steps" title="Permanent link">&para;</a></h2>
+<h3 id="what-youve-learned">What You've Learned<a class="headerlink" href="#what-youve-learned" title="Permanent link">&para;</a></h3>
+<p>By completing this beginner's module, you now understand:</p>
+<ul>
+<li>Sherlock's purpose and functionality in OSINT investigations</li>
+<li>How to install and configure Sherlock on your system</li>
+<li>Running basic and multi-username searches</li>
+<li>Interpreting search results accurately</li>
+<li>Saving results in multiple formats</li>
+<li>Common mistakes and how to avoid them</li>
+<li>Manual verification importance and techniques</li>
+</ul>
+<h3 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Sherlock is a Discovery Tool</strong>: It finds usernames, not identities</li>
+<li><strong>Always Verify Manually</strong>: Never trust automated results alone</li>
+<li><strong>Document Everything</strong>: Professional investigations require proper documentation</li>
+<li><strong>Unique Usernames Work Best</strong>: Generic names produce poor results</li>
+<li><strong>Use Multiple Formats</strong>: Save in text, JSON, and CSV for different purposes</li>
+</ol>
+<h3 id="moving-to-intermediate-level">Moving to Intermediate Level<a class="headerlink" href="#moving-to-intermediate-level" title="Permanent link">&para;</a></h3>
+<p>Ready to advance? Here's what comes next:</p>
+<p><strong>Intermediate Skills to Learn</strong>:</p>
+<ul>
+<li>Using Tor for anonymous searching</li>
+<li>Correlating accounts across platforms</li>
+<li>Integrating Sherlock with other OSINT tools</li>
+<li>Automating repetitive searches</li>
+<li>Building comprehensive digital footprints</li>
+</ul>
+<p><strong>Recommended Next Tools</strong>:</p>
+<ul>
+<li><strong>Holehe</strong>: Email to account matching</li>
+<li><strong>WhatsMyName</strong>: Extended platform coverage</li>
+<li><strong>Maigret</strong>: Advanced username collection</li>
+<li><strong>Social-Analyzer</strong>: Deep profile analysis</li>
+</ul>
+<h3 id="practice-recommendations">Practice Recommendations<a class="headerlink" href="#practice-recommendations" title="Permanent link">&para;</a></h3>
+<p><strong>Daily Practice</strong> (Week 1):</p>
+<ul>
+<li>Search 3 different usernames daily</li>
+<li>Practice manual verification</li>
+<li>Experiment with different output formats</li>
+<li>Build your investigation documentation system</li>
+</ul>
+<p><strong>Weekly Projects</strong> (Weeks 2-4):</p>
+<ul>
+<li>Complete digital footprint of a public figure</li>
+<li>Investigate your own online presence</li>
+<li>Create a comprehensive OSINT report</li>
+<li>Build a reusable investigation workflow</li>
+</ul>
+<h3 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h3>
+<p><strong>Official Documentation</strong>:</p>
+<ul>
+<li><a href="https://github.com/sherlock-project/sherlock">Sherlock GitHub</a></li>
+<li><a href="https://github.com/sherlock-project/sherlock/wiki">Sherlock Wiki</a></li>
+</ul>
+<p><strong>Learning Communities</strong>:</p>
+<ul>
+<li>r/OSINT on Reddit</li>
+<li>OSINT Curious podcast and website</li>
+<li>Bellingcat online courses</li>
+<li>Trace Labs CTF events</li>
+</ul>
+<p><strong>Reference Materials</strong>:</p>
+<ul>
+<li>OSINT Framework (osintframework.com)</li>
+<li>IntelTechniques.com</li>
+<li>OSINT Combine</li>
+</ul>
+<p>Remember: OSINT investigations must be conducted ethically and legally. Always respect privacy rights and comply with applicable laws and platform terms of service.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../sherlock/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Roadmap">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Roadmap
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../intermediate/" class="md-footer__link md-footer__link--next" aria-label="Next: Intermediate">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Intermediate
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Njoxpy
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Njoxpy" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/njoxpy" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+    
+  </body>
+</html>
